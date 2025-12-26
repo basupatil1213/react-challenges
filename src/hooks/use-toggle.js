@@ -1,9 +1,28 @@
-import { useState } from "react"
+/**
+ * useToggle Hook
+ * 
+ * A simple hook for managing boolean toggle state.
+ * Provides a value and a function to toggle it.
+ * 
+ * @param {boolean} initialValue - The initial toggle state
+ * @returns {[boolean, Function]} Tuple of [value, toggleFunction]
+ * 
+ * @example
+ * const [isOpen, toggleOpen] = useToggle(false);
+ * 
+ * return (
+ *   <button onClick={toggleOpen}>
+ *     {isOpen ? 'Close' : 'Open'}
+ *   </button>
+ * );
+ */
 
-export const useToggle = (initialValue) => {
-    const [value, setValue] = useState(initialValue);
+import { useState } from 'react';
 
-    const setToggle = () => setValue(prev => !prev);
+export const useToggle = (initialValue = false) => {
+  const [value, setValue] = useState(initialValue);
 
-    return [value, setToggle];
-}
+  const toggle = () => setValue((prev) => !prev);
+
+  return [value, toggle];
+};
