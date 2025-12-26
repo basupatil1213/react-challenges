@@ -3,12 +3,14 @@
  * 
  * A search filter that demonstrates:
  * - Real-time filtering with useState
+ * - Debouncing with custom useDebounce hook
  * - Memoization with useMemo for performance
  * - Case-insensitive search
  * - Empty state handling
  */
 
 import { useState, useMemo } from 'react';
+import { useDebounce } from '../hooks/use-debounce';
 
 /**
  * Sample data for searching
@@ -33,13 +35,15 @@ const Search = () => {
   // Search input state
   const [searchText, setSearchText] = useState('');
 
+  const debouncedValue = useDebounce(searchText, 1000);
+
   /**
    * Memoized filtered results
-   * Only recalculates when searchText changes
+   * Only recalculates when debouncedValue changes
    * Searches across name, color, and season fields
    */
   const filteredData = useMemo(() => {
-    const query = searchText.toLowerCase().trim();
+    const query = debouncedValue.toLowerCase().trim();
     
     if (!query) return FRUITS_DATA;
 
@@ -48,7 +52,7 @@ const Search = () => {
       item.color.toLowerCase().includes(query) ||
       item.season.toLowerCase().includes(query)
     );
-  }, [searchText]);
+  }, [debouncedValue]);
 
   /**
    * Handles search input changes

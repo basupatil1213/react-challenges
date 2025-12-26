@@ -1,8 +1,8 @@
 /**
  * Search Challenge Route
  * 
- * Demonstrates real-time search filtering with memoization.
- * Shows optimized filtering patterns and empty state handling.
+ * Demonstrates real-time search filtering with debouncing and memoization.
+ * Shows custom hooks, optimized filtering patterns, and empty state handling.
  * 
  * @module routes/challenges/search
  */
@@ -39,8 +39,8 @@ const SearchChallengePage = () => {
           </div>
 
           <p className="text-text-secondary">
-            Create a real-time search filter with memoized results for optimal 
-            performance. Learn filtering patterns and empty state handling.
+            Create a real-time search filter with debouncing and memoized results 
+            for optimal performance. Learn custom hooks, filtering patterns, and empty state handling.
           </p>
           <a
             href="https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Search.jsx"
@@ -69,8 +69,8 @@ const SearchChallengePage = () => {
             <li className="flex items-start gap-3">
               <span className="w-6 h-6 bg-primary-light text-primary rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">1</span>
               <div>
-                <p className="font-medium text-text-primary">Real-time Filtering</p>
-                <p className="text-sm text-text-secondary">Filter data instantly as the user types using controlled inputs.</p>
+                <p className="font-medium text-text-primary">Custom useDebounce Hook</p>
+                <p className="text-sm text-text-secondary">Delay search execution until user stops typing to reduce unnecessary computations.</p>
               </div>
             </li>
             <li className="flex items-start gap-3">
@@ -82,6 +82,13 @@ const SearchChallengePage = () => {
             </li>
             <li className="flex items-start gap-3">
               <span className="w-6 h-6 bg-primary-light text-primary rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">3</span>
+              <div>
+                <p className="font-medium text-text-primary">Real-time Filtering</p>
+                <p className="text-sm text-text-secondary">Filter data across multiple fields with case-insensitive matching.</p>
+              </div>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-6 h-6 bg-primary-light text-primary rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
               <div>
                 <p className="font-medium text-text-primary">Empty State UX</p>
                 <p className="text-sm text-text-secondary">Handle and display meaningful empty states when no results match.</p>

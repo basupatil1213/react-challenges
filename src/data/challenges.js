@@ -80,12 +80,12 @@ export const challenges = [
   {
     id: 'search',
     title: 'Search Filter',
-    description: 'Create a real-time search filter with memoized results for optimal performance.',
+    description: 'Create a real-time search filter with debouncing and memoized results for optimal performance.',
     difficulty: 'Intermediate',
-    concepts: ['useState', 'useMemo', 'String Methods', 'Filtering'],
+    concepts: ['useState', 'useMemo', 'Custom Hooks', 'Debouncing'],
     icon: '🔍',
     learningPoints: [
-      'Implement search logic',
+      'Use custom useDebounce hook',
       'Memoize expensive computations',
       'Handle empty states',
     ],
