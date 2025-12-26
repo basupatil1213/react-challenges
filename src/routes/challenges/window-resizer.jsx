@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import WindowResizer from '../../challenges/WindowResizer';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const WindowResizerChallengePage = () => {
+  const solution = getSolutionById('window-resizer');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -89,6 +93,9 @@ const WindowResizerChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

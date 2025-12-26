@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import FetchUsers from '../../challenges/FetchUsers';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const FetchUsersChallengePage = () => {
+  const solution = getSolutionById('fetch-users');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -89,6 +93,9 @@ const FetchUsersChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import Search from '../../challenges/Search';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const SearchChallengePage = () => {
+  const solution = getSolutionById('search');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -96,6 +100,9 @@ const SearchChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

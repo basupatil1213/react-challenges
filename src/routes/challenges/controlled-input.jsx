@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import ControlledInput from '../../challenges/ControlledInput';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const ControlledInputChallengePage = () => {
+  const solution = getSolutionById('controlled-input');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -89,6 +93,9 @@ const ControlledInputChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

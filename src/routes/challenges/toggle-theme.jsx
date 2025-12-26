@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import ToggleTheme from '../../challenges/ToggleTheme';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const ToggleThemeChallengePage = () => {
+  const solution = getSolutionById('toggle-theme');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -89,6 +93,9 @@ const ToggleThemeChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

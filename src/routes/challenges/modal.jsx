@@ -9,6 +9,8 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import Modal from '../../challenges/Modal';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * ModalDemo Component
@@ -49,6 +51,8 @@ const ModalDemo = () => {
  * Provides consistent layout for the Modal challenge page
  */
 const ModalChallengePage = () => {
+  const solution = getSolutionById('modal');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -131,6 +135,9 @@ const ModalChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

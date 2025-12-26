@@ -8,6 +8,18 @@
  */
 
 /**
+ * Category configuration with colors and icons
+ */
+export const categoryConfig = {
+  All: { color: 'bg-bg-tertiary text-text-primary', icon: '📚' },
+  'State Management': { color: 'bg-blue-100 text-blue-700', icon: '🎛️' },
+  'Custom Hooks': { color: 'bg-purple-100 text-purple-700', icon: '🪝' },
+  'Side Effects': { color: 'bg-green-100 text-green-700', icon: '⚡' },
+  'Data Fetching': { color: 'bg-orange-100 text-orange-700', icon: '🌐' },
+  'Performance': { color: 'bg-yellow-100 text-yellow-700', icon: '🚀' },
+};
+
+/**
  * Complete challenge metadata
  * Contains all information needed to display challenge cards
  */
@@ -17,6 +29,7 @@ export const challenges = [
     title: 'Counter',
     description: 'Learn the fundamental useState hook by building a simple counter with increment, decrement, and boundary checking.',
     difficulty: 'Beginner',
+    category: 'State Management',
     concepts: ['useState', 'Event Handling', 'Conditional Rendering'],
     icon: '🔢',
     learningPoints: [
@@ -30,6 +43,7 @@ export const challenges = [
     title: 'Toggle Theme',
     description: 'Implement a theme toggle between light and dark modes using state-driven styling.',
     difficulty: 'Beginner',
+    category: 'State Management',
     concepts: ['useState', 'Conditional Styling', 'Object Lookup'],
     icon: '🌓',
     learningPoints: [
@@ -43,6 +57,7 @@ export const challenges = [
     title: 'Controlled Input',
     description: 'Master the controlled component pattern with text inputs and real-time display.',
     difficulty: 'Beginner',
+    category: 'State Management',
     concepts: ['useState', 'Controlled Components', 'Form Handling'],
     icon: '📝',
     learningPoints: [
@@ -56,6 +71,7 @@ export const challenges = [
     title: 'Modal',
     description: 'Build a reusable modal component with custom hooks for conditional rendering and accessible markup.',
     difficulty: 'Beginner',
+    category: 'Custom Hooks',
     concepts: ['Custom Hooks', 'Conditional Rendering', 'Children Prop', 'ARIA'],
     icon: '🪟',
     learningPoints: [
@@ -69,6 +85,7 @@ export const challenges = [
     title: 'Todo List',
     description: 'Build a complete todo application with add, delete, complete, and filter functionality.',
     difficulty: 'Intermediate',
+    category: 'State Management',
     concepts: ['useState', 'useMemo', 'Array Methods', 'UUID Generation'],
     icon: '✅',
     learningPoints: [
@@ -82,6 +99,7 @@ export const challenges = [
     title: 'Search Filter',
     description: 'Create a real-time search filter with debouncing and memoized results for optimal performance.',
     difficulty: 'Intermediate',
+    category: 'Performance',
     concepts: ['useState', 'useMemo', 'Custom Hooks', 'Debouncing'],
     icon: '🔍',
     learningPoints: [
@@ -95,6 +113,7 @@ export const challenges = [
     title: 'Timer',
     description: 'Create a fully functional timer with start, pause, and reset controls using intervals.',
     difficulty: 'Intermediate',
+    category: 'Side Effects',
     concepts: ['useState', 'useEffect', 'useRef', 'setInterval'],
     icon: '⏱️',
     learningPoints: [
@@ -108,6 +127,7 @@ export const challenges = [
     title: 'Window Resizer',
     description: 'Track and display window dimensions in real-time using event listeners.',
     difficulty: 'Intermediate',
+    category: 'Side Effects',
     concepts: ['useState', 'useEffect', 'Event Listeners', 'Cleanup'],
     icon: '📐',
     learningPoints: [
@@ -121,6 +141,7 @@ export const challenges = [
     title: 'Fetch Users',
     description: 'Handle asynchronous data fetching with loading states, error handling, and request cancellation.',
     difficulty: 'Advanced',
+    category: 'Data Fetching',
     concepts: ['useState', 'useEffect', 'Async/Await', 'AbortController'],
     icon: '👥',
     learningPoints: [
@@ -160,3 +181,22 @@ export const getChallengeStats = () => ({
   advanced: challenges.filter(c => c.difficulty === 'Advanced').length,
   hooks: ['useState', 'useEffect', 'useRef', 'useMemo'],
 });
+
+/**
+ * Get unique categories from challenges
+ */
+export const getCategories = () => {
+  const categories = [...new Set(challenges.map(c => c.category))];
+  return ['All', ...categories];
+};
+
+/**
+ * Get category counts
+ */
+export const getCategoryCounts = () => {
+  const counts = { All: challenges.length };
+  challenges.forEach(c => {
+    counts[c.category] = (counts[c.category] || 0) + 1;
+  });
+  return counts;
+};

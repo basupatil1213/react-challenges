@@ -9,11 +9,15 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import Timer from '../../challenges/Timer';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
  */
 const TimerChallengePage = () => {
+  const solution = getSolutionById('timer');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -89,6 +93,9 @@ const TimerChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

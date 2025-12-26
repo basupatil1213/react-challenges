@@ -9,6 +9,8 @@
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import Counter from '../../challenges/Counter';
+import ShowSolution from '../../components/ShowSolution';
+import { getSolutionById } from '../../data/solutions';
 
 /**
  * Challenge Page Layout Component
@@ -16,6 +18,8 @@ import Counter from '../../challenges/Counter';
  * Provides consistent layout for all challenge pages
  */
 const CounterChallengePage = () => {
+  const solution = getSolutionById('counter');
+
   return (
     <div className="min-h-screen">
       {/* Page header */}
@@ -91,6 +95,9 @@ const CounterChallengePage = () => {
             </li>
           </ul>
         </div>
+
+        {/* Solution section */}
+        {solution && <ShowSolution solution={solution} />}
       </section>
     </div>
   );

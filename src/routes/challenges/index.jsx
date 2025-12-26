@@ -2,14 +2,14 @@
  * Challenges Index Route
  * 
  * Displays all available React challenges in a grid layout.
- * Allows users to filter challenges by difficulty level.
+ * Allows users to filter challenges by difficulty level and category.
  * 
  * @module routes/challenges/index
  */
 
 import { createFileRoute, Link } from '@tanstack/react-router';
 import { useState, useMemo } from 'react';
-import { challenges, difficultyConfig } from '../../data/challenges';
+import { challenges, difficultyConfig, categoryConfig, getCategoryCounts } from '../../data/challenges';
 
 /**
  * ChallengeCard Component
@@ -84,15 +84,16 @@ const ChallengeCard = ({ challenge }) => {
 /**
  * FilterButton Component
  * 
- * Button for filtering challenges by difficulty.
+ * Button for filtering challenges by difficulty or category.
  * 
  * @param {Object} props - Component props
  * @param {string} props.label - Button label
  * @param {boolean} props.isActive - Whether this filter is active
  * @param {Function} props.onClick - Click handler
  * @param {number} props.count - Number of challenges matching this filter
+ * @param {string} props.icon - Optional icon for the button
  */
-const FilterButton = ({ label, isActive, onClick, count }) => {
+const FilterButton = ({ label, isActive, onClick, count, icon }) => {
   const baseClasses = 'px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 flex items-center gap-2';
   const activeClasses = isActive
     ? 'bg-primary text-white'
@@ -100,6 +101,7 @@ const FilterButton = ({ label, isActive, onClick, count }) => {
 
   return (
     <button onClick={onClick} className={`${baseClasses} ${activeClasses}`}>
+      {icon && <span>{icon}</span>}
       {label}
       <span className={`text-xs ${isActive ? 'bg-white/20' : 'bg-bg-tertiary'} px-2 py-0.5 rounded-full`}>
         {count}
@@ -115,20 +117,44 @@ const FilterButton = ({ label, isActive, onClick, count }) => {
  */
 const ChallengesPage = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  // Get category counts
+  const categoryCounts = useMemo(() => getCategoryCounts(), []);
 
   // Memoized filtered challenges for performance
   const filteredChallenges = useMemo(() => {
-    if (selectedDifficulty === 'All') return challenges;
-    return challenges.filter((c) => c.difficulty === selectedDifficulty);
-  }, [selectedDifficulty]);
+    return challenges.filter((c) => {
+      const matchesDifficulty = selectedDifficulty === 'All' || c.difficulty === selectedDifficulty;
+      const matchesCategory = selectedCategory === 'All' || c.category === selectedCategory;
+      return matchesDifficulty && matchesCategory;
+    });
+  }, [selectedDifficulty, selectedCategory]);
 
-  // Count challenges by difficulty
-  const difficultyCounts = useMemo(() => ({
-    All: challenges.length,
-    Beginner: challenges.filter((c) => c.difficulty === 'Beginner').length,
-    Intermediate: challenges.filter((c) => c.difficulty === 'Intermediate').length,
-    Advanced: challenges.filter((c) => c.difficulty === 'Advanced').length,
-  }), []);
+  // Count challenges by difficulty (respecting category filter)
+  const difficultyCounts = useMemo(() => {
+    const baseList = selectedCategory === 'All' 
+      ? challenges 
+      : challenges.filter(c => c.category === selectedCategory);
+    return {
+      All: baseList.length,
+      Beginner: baseList.filter((c) => c.difficulty === 'Beginner').length,
+      Intermediate: baseList.filter((c) => c.difficulty === 'Intermediate').length,
+      Advanced: baseList.filter((c) => c.difficulty === 'Advanced').length,
+    };
+  }, [selectedCategory]);
+
+  // Reset difficulty when switching categories if current selection has no results
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+    const newFiltered = challenges.filter(c => 
+      (category === 'All' || c.category === category) && 
+      (selectedDifficulty === 'All' || c.difficulty === selectedDifficulty)
+    );
+    if (newFiltered.length === 0) {
+      setSelectedDifficulty('All');
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -148,17 +174,37 @@ const ChallengesPage = () => {
 
       {/* Filters and content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Filter buttons */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {Object.keys(difficultyConfig).map((difficulty) => (
-            <FilterButton
-              key={difficulty}
-              label={difficulty}
-              isActive={selectedDifficulty === difficulty}
-              onClick={() => setSelectedDifficulty(difficulty)}
-              count={difficultyCounts[difficulty]}
-            />
-          ))}
+        {/* Category filters */}
+        <div className="mb-6">
+          <h3 className="text-sm font-medium text-text-muted mb-3">Category</h3>
+          <div className="flex flex-wrap gap-3">
+            {Object.keys(categoryConfig).map((category) => (
+              <FilterButton
+                key={category}
+                label={category}
+                icon={categoryConfig[category]?.icon}
+                isActive={selectedCategory === category}
+                onClick={() => handleCategoryChange(category)}
+                count={categoryCounts[category] || 0}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Difficulty filters */}
+        <div className="mb-8">
+          <h3 className="text-sm font-medium text-text-muted mb-3">Difficulty</h3>
+          <div className="flex flex-wrap gap-3">
+            {Object.keys(difficultyConfig).map((difficulty) => (
+              <FilterButton
+                key={difficulty}
+                label={difficulty}
+                isActive={selectedDifficulty === difficulty}
+                onClick={() => setSelectedDifficulty(difficulty)}
+                count={difficultyCounts[difficulty]}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Challenge grid */}
