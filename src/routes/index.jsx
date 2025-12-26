@@ -8,94 +8,12 @@
  */
 
 import { createFileRoute, Link } from '@tanstack/react-router';
-
-/**
- * Challenge cards data configuration
- * Each card represents a React concept with its metadata
- */
-const challengeCards = [
-  {
-    id: 'counter',
-    title: 'Counter',
-    description: 'Learn useState hook with increment and decrement functionality.',
-    difficulty: 'Beginner',
-    concepts: ['useState', 'Event Handling'],
-    icon: '🔢',
-  },
-  {
-    id: 'toggle-theme',
-    title: 'Toggle Theme',
-    description: 'Implement theme switching with state management.',
-    difficulty: 'Beginner',
-    concepts: ['useState', 'Conditional Styling'],
-    icon: '🌓',
-  },
-  {
-    id: 'controlled-input',
-    title: 'Controlled Input',
-    description: 'Master controlled components with form inputs.',
-    difficulty: 'Beginner',
-    concepts: ['useState', 'Controlled Components'],
-    icon: '📝',
-  },
-  {
-    id: 'modal',
-    title: 'Modal',
-    description: 'Build a reusable modal with custom hooks and conditional rendering.',
-    difficulty: 'Beginner',
-    concepts: ['Custom Hooks', 'Conditional Rendering'],
-    icon: '🪟',
-  },
-  {
-    id: 'todo-list',
-    title: 'Todo List',
-    description: 'Build a full-featured todo application with CRUD operations.',
-    difficulty: 'Intermediate',
-    concepts: ['useState', 'useMemo', 'Array Methods'],
-    icon: '✅',
-  },
-  {
-    id: 'search',
-    title: 'Search Filter',
-    description: 'Implement real-time search with optimized filtering.',
-    difficulty: 'Intermediate',
-    concepts: ['useState', 'useMemo', 'Filtering'],
-    icon: '🔍',
-  },
-  {
-    id: 'timer',
-    title: 'Timer',
-    description: 'Create a timer with useEffect cleanup and useRef.',
-    difficulty: 'Intermediate',
-    concepts: ['useState', 'useEffect', 'useRef'],
-    icon: '⏱️',
-  },
-  {
-    id: 'window-resizer',
-    title: 'Window Resizer',
-    description: 'Track window dimensions with event listeners.',
-    difficulty: 'Intermediate',
-    concepts: ['useState', 'useEffect', 'Event Listeners'],
-    icon: '📐',
-  },
-  {
-    id: 'fetch-users',
-    title: 'Fetch Users',
-    description: 'Handle API calls with loading states and error handling.',
-    difficulty: 'Advanced',
-    concepts: ['useState', 'useEffect', 'Async/Await', 'AbortController'],
-    icon: '👥',
-  },
-];
+import { challenges, difficultyColors, getChallengeStats } from '../data/challenges';
 
 /**
  * Difficulty badge color mapping
  */
-const difficultyColors = {
-  Beginner: 'bg-success-light text-success',
-  Intermediate: 'bg-warning-light text-warning',
-  Advanced: 'bg-danger-light text-danger',
-};
+const difficultyColorMap = difficultyColors;
 
 /**
  * ChallengeCard Component
@@ -114,7 +32,7 @@ const ChallengeCard = ({ challenge }) => {
       {/* Card header with icon and difficulty */}
       <div className="flex items-start justify-between mb-4">
         <span className="text-4xl">{challenge.icon}</span>
-        <span className={`px-3 py-1 rounded-full text-xs font-medium ${difficultyColors[challenge.difficulty]}`}>
+        <span className={`px-3 py-1 rounded-full text-xs font-medium ${difficultyColorMap[challenge.difficulty]}`}>
           {challenge.difficulty}
         </span>
       </div>
@@ -188,9 +106,10 @@ const HeroSection = () => {
  * Displays key statistics about the challenges.
  */
 const StatsSection = () => {
+  const challengeStats = getChallengeStats();
   const stats = [
-    { label: 'Challenges', value: '9' },
-    { label: 'React Hooks', value: '4+' },
+    { label: 'Challenges', value: String(challengeStats.total) },
+    { label: 'React Hooks', value: `${challengeStats.hooks.length}+` },
     { label: 'Difficulty Levels', value: '3' },
   ];
 
@@ -234,7 +153,7 @@ const HomePage = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {challengeCards.map((challenge) => (
+          {challenges.map((challenge) => (
             <ChallengeCard key={challenge.id} challenge={challenge} />
           ))}
         </div>
