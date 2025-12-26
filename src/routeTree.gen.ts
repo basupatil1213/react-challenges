@@ -16,6 +16,7 @@ import { Route as ChallengesToggleThemeRouteImport } from './routes/challenges/t
 import { Route as ChallengesTodoListRouteImport } from './routes/challenges/todo-list'
 import { Route as ChallengesTimerRouteImport } from './routes/challenges/timer'
 import { Route as ChallengesSearchRouteImport } from './routes/challenges/search'
+import { Route as ChallengesModalRouteImport } from './routes/challenges/modal'
 import { Route as ChallengesFetchUsersRouteImport } from './routes/challenges/fetch-users'
 import { Route as ChallengesCounterRouteImport } from './routes/challenges/counter'
 import { Route as ChallengesControlledInputRouteImport } from './routes/challenges/controlled-input'
@@ -55,6 +56,11 @@ const ChallengesSearchRoute = ChallengesSearchRouteImport.update({
   path: '/challenges/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengesModalRoute = ChallengesModalRouteImport.update({
+  id: '/challenges/modal',
+  path: '/challenges/modal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChallengesFetchUsersRoute = ChallengesFetchUsersRouteImport.update({
   id: '/challenges/fetch-users',
   path: '/challenges/fetch-users',
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/challenges/controlled-input': typeof ChallengesControlledInputRoute
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
+  '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/challenges/controlled-input': typeof ChallengesControlledInputRoute
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
+  '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/challenges/controlled-input': typeof ChallengesControlledInputRoute
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
+  '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -116,6 +125,7 @@ export interface FileRouteTypes {
     | '/challenges/controlled-input'
     | '/challenges/counter'
     | '/challenges/fetch-users'
+    | '/challenges/modal'
     | '/challenges/search'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -128,6 +138,7 @@ export interface FileRouteTypes {
     | '/challenges/controlled-input'
     | '/challenges/counter'
     | '/challenges/fetch-users'
+    | '/challenges/modal'
     | '/challenges/search'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -140,6 +151,7 @@ export interface FileRouteTypes {
     | '/challenges/controlled-input'
     | '/challenges/counter'
     | '/challenges/fetch-users'
+    | '/challenges/modal'
     | '/challenges/search'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -153,6 +165,7 @@ export interface RootRouteChildren {
   ChallengesControlledInputRoute: typeof ChallengesControlledInputRoute
   ChallengesCounterRoute: typeof ChallengesCounterRoute
   ChallengesFetchUsersRoute: typeof ChallengesFetchUsersRoute
+  ChallengesModalRoute: typeof ChallengesModalRoute
   ChallengesSearchRoute: typeof ChallengesSearchRoute
   ChallengesTimerRoute: typeof ChallengesTimerRoute
   ChallengesTodoListRoute: typeof ChallengesTodoListRoute
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChallengesSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenges/modal': {
+      id: '/challenges/modal'
+      path: '/challenges/modal'
+      fullPath: '/challenges/modal'
+      preLoaderRoute: typeof ChallengesModalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenges/fetch-users': {
       id: '/challenges/fetch-users'
       path: '/challenges/fetch-users'
@@ -241,6 +261,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengesControlledInputRoute: ChallengesControlledInputRoute,
   ChallengesCounterRoute: ChallengesCounterRoute,
   ChallengesFetchUsersRoute: ChallengesFetchUsersRoute,
+  ChallengesModalRoute: ChallengesModalRoute,
   ChallengesSearchRoute: ChallengesSearchRoute,
   ChallengesTimerRoute: ChallengesTimerRoute,
   ChallengesTodoListRoute: ChallengesTodoListRoute,
