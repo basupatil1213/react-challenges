@@ -39,6 +39,14 @@ const challengeCards = [
     icon: '📝',
   },
   {
+    id: 'modal',
+    title: 'Modal',
+    description: 'Build a reusable modal with custom hooks and conditional rendering.',
+    difficulty: 'Beginner',
+    concepts: ['Custom Hooks', 'Conditional Rendering'],
+    icon: '🪟',
+  },
+  {
     id: 'todo-list',
     title: 'Todo List',
     description: 'Build a full-featured todo application with CRUD operations.',
@@ -181,7 +189,7 @@ const HeroSection = () => {
  */
 const StatsSection = () => {
   const stats = [
-    { label: 'Challenges', value: '8' },
+    { label: 'Challenges', value: '9' },
     { label: 'React Hooks', value: '4+' },
     { label: 'Difficulty Levels', value: '3' },
   ];
