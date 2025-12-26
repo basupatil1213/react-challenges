@@ -55,6 +55,19 @@ const challenges = [
     ],
   },
   {
+    id: 'modal',
+    title: 'Modal',
+    description: 'Build a reusable modal component with custom hooks for conditional rendering and accessible markup.',
+    difficulty: 'Beginner',
+    concepts: ['Custom Hooks', 'Conditional Rendering', 'Children Prop', 'ARIA'],
+    icon: '🪟',
+    learningPoints: [
+      'Create custom hooks for state logic',
+      'Implement conditional rendering',
+      'Build accessible modal dialogs',
+    ],
+  },
+  {
     id: 'todo-list',
     title: 'Todo List',
     description: 'Build a complete todo application with add, delete, complete, and filter functionality.',
