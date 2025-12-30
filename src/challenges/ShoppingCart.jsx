@@ -300,7 +300,7 @@ const ProductCard = ({ item, onAddToCart }) => {
 
           <button
             onClick={handleAdd}
-            className="w-full px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary-hover active:scale-[0.98] transition-all"
+            className="w-full px-4 py-2 bg-primary cursor-pointer text-white text-sm font-medium rounded-lg hover:bg-primary-hover active:scale-[0.98] transition-all"
           >
             Add to Cart
           </button>
@@ -341,7 +341,7 @@ const Cart = ({ cartItems, onRemove, onUpdateQuantity, onClear }) => {
           {cartItems.length > 0 && (
             <button
               onClick={onClear}
-              className="text-xs text-danger hover:text-danger-hover transition-colors"
+              className="text-xs text-danger hover:text-danger-hover transition-colors cursor-pointer"
             >
               Clear All
             </button>
@@ -382,7 +382,7 @@ const Cart = ({ cartItems, onRemove, onUpdateQuantity, onClear }) => {
 
               {/* Checkout Button */}
               <button
-                className="w-full py-3 bg-success text-white font-medium rounded-lg hover:bg-success-hover active:scale-[0.98] transition-all"
+                className="w-full py-3 bg-success cursor-pointer text-white font-medium rounded-lg hover:bg-success-hover active:scale-[0.98] transition-all"
               >
                 Proceed to Checkout
               </button>
@@ -422,12 +422,12 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }) => {
           <div className="flex items-center border border-border rounded overflow-hidden">
             <button
               onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-              className="px-2 py-1 text-text-muted hover:bg-bg-primary transition-colors"
+              className="px-2 py-1 cursor-pointer text-text-muted hover:bg-bg-primary transition-colors"
               aria-label="Decrease quantity"
             >
               −
             </button>
-            <span className="px-3 py-1 text-sm text-text-primary bg-bg-primary min-w-[2.5rem] text-center">
+            <span className="px-3 py-1 cursor-pointer text-sm text-text-primary bg-bg-primary min-w-[2.5rem] text-center">
               {item.quantity}
             </span>
             <button
@@ -441,7 +441,7 @@ const CartItem = ({ item, onRemove, onUpdateQuantity }) => {
           
           <button
             onClick={() => onRemove(item.id)}
-            className="text-xs text-danger hover:text-danger-hover transition-colors"
+            className="text-xs text-danger cursor-pointer hover:text-danger-hover transition-colors"
           >
             Remove
           </button>
