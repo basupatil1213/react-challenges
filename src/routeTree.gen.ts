@@ -16,6 +16,7 @@ import { Route as ChallengesToggleThemeRouteImport } from './routes/challenges/t
 import { Route as ChallengesTodoListRouteImport } from './routes/challenges/todo-list'
 import { Route as ChallengesTimerRouteImport } from './routes/challenges/timer'
 import { Route as ChallengesTableRouteImport } from './routes/challenges/table'
+import { Route as ChallengesShoppingCartRouteImport } from './routes/challenges/shopping-cart'
 import { Route as ChallengesSearchRouteImport } from './routes/challenges/search'
 import { Route as ChallengesPaginationRouteImport } from './routes/challenges/pagination'
 import { Route as ChallengesModalRouteImport } from './routes/challenges/modal'
@@ -58,6 +59,11 @@ const ChallengesTableRoute = ChallengesTableRouteImport.update({
   path: '/challenges/table',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengesShoppingCartRoute = ChallengesShoppingCartRouteImport.update({
+  id: '/challenges/shopping-cart',
+  path: '/challenges/shopping-cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChallengesSearchRoute = ChallengesSearchRouteImport.update({
   id: '/challenges/search',
   path: '/challenges/search',
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
+  '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
+  '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
+  '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
   '/challenges/todo-list': typeof ChallengesTodoListRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/challenges/modal'
     | '/challenges/pagination'
     | '/challenges/search'
+    | '/challenges/shopping-cart'
     | '/challenges/table'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/challenges/modal'
     | '/challenges/pagination'
     | '/challenges/search'
+    | '/challenges/shopping-cart'
     | '/challenges/table'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/challenges/modal'
     | '/challenges/pagination'
     | '/challenges/search'
+    | '/challenges/shopping-cart'
     | '/challenges/table'
     | '/challenges/timer'
     | '/challenges/todo-list'
@@ -192,6 +204,7 @@ export interface RootRouteChildren {
   ChallengesModalRoute: typeof ChallengesModalRoute
   ChallengesPaginationRoute: typeof ChallengesPaginationRoute
   ChallengesSearchRoute: typeof ChallengesSearchRoute
+  ChallengesShoppingCartRoute: typeof ChallengesShoppingCartRoute
   ChallengesTableRoute: typeof ChallengesTableRoute
   ChallengesTimerRoute: typeof ChallengesTimerRoute
   ChallengesTodoListRoute: typeof ChallengesTodoListRoute
@@ -251,6 +264,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChallengesTableRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenges/shopping-cart': {
+      id: '/challenges/shopping-cart'
+      path: '/challenges/shopping-cart'
+      fullPath: '/challenges/shopping-cart'
+      preLoaderRoute: typeof ChallengesShoppingCartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenges/search': {
       id: '/challenges/search'
       path: '/challenges/search'
@@ -304,6 +324,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengesModalRoute: ChallengesModalRoute,
   ChallengesPaginationRoute: ChallengesPaginationRoute,
   ChallengesSearchRoute: ChallengesSearchRoute,
+  ChallengesShoppingCartRoute: ChallengesShoppingCartRoute,
   ChallengesTableRoute: ChallengesTableRoute,
   ChallengesTimerRoute: ChallengesTimerRoute,
   ChallengesTodoListRoute: ChallengesTodoListRoute,

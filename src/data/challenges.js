@@ -165,6 +165,20 @@ export const challenges = [
     ],
   },
   {
+    id: 'shopping-cart',
+    title: 'Shopping Cart',
+    description: 'Build a shopping cart with useReducer for complex state management, add/remove functionality, and price calculations.',
+    difficulty: 'Intermediate',
+    category: 'State Management',
+    concepts: ['useReducer', 'useMemo', 'Actions', 'Component Composition'],
+    icon: '🛒',
+    learningPoints: [
+      'Use useReducer for complex state',
+      'Dispatch actions with payloads',
+      'Memoize total calculations',
+    ],
+  },
+  {
     id: 'fetch-users',
     title: 'Fetch Users',
     description: 'Handle asynchronous data fetching with loading states, error handling, and request cancellation.',

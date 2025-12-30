@@ -227,6 +227,26 @@ export const solutions = {
     filename: 'Pagination.jsx',
     githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Pagination.jsx',
   },
+
+  'shopping-cart': {
+    explanation: 'The Shopping Cart uses useReducer for managing complex cart state with multiple actions (add, remove, update, clear). useMemo optimizes total price and item count calculations.',
+    hints: [
+      {
+        title: 'useReducer Setup',
+        content: 'Use useReducer(cartReducer, []) instead of useState for complex state. The reducer handles actions like ADD_ITEM, REMOVE_ITEM based on action.type.',
+      },
+      {
+        title: 'Handling Duplicate Items',
+        content: 'In ADD_ITEM action, first check if item exists with state.find(). If it does, map over state and update quantity. If not, spread and add new item.',
+      },
+      {
+        title: 'Memoized Totals',
+        content: 'Use useMemo with cartItems as dependency: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0) for efficient total calculation.',
+      },
+    ],
+    filename: 'ShoppingCart.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ShoppingCart.jsx',
+  },
 };
 
 /**

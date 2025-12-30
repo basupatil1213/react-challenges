@@ -9,7 +9,7 @@ A collection of hands-on React exercises designed to strengthen your understandi
 
 ## 🎯 Overview
 
-This project contains **11 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
+This project contains **12 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
 
 ## 📚 Challenges
 
@@ -25,7 +25,8 @@ This project contains **11 progressive React challenges** that cover fundamental
 | 8 | ⏱️ **Timer** | Intermediate | useState, useEffect, useRef |
 | 9 | 📐 **Window Resizer** | Intermediate | useState, useEffect, Event Listeners |
 | 10 | 📄 **Pagination** | Intermediate | useState, useMemo, Array Slicing |
-| 11 | 👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
+| 11 | 🛒 **Shopping Cart** | Intermediate | useReducer, useMemo, Actions |
+| 12 | 👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
 
 ## 🚀 Getting Started
 
@@ -67,6 +68,7 @@ src/
 │   ├── Timer.jsx
 │   ├── WindowResizer.jsx
 │   ├── Pagination.jsx
+│   ├── ShoppingCart.jsx
 │   └── FetchUsers.jsx
 ├── data/
 │   ├── challenges.js    # Centralized challenge metadata
@@ -91,6 +93,7 @@ src/
 │       ├── timer.jsx
 │       ├── window-resizer.jsx
 │       ├── pagination.jsx
+│       ├── shopping-cart.jsx
 │       └── fetch-users.jsx
 └── assets/              # Static assets
 ```
@@ -113,17 +116,18 @@ Start here to learn React fundamentals:
 4. **Modal** - Create custom hooks
 5. **Tabbed Content** - Dynamic tab switching
 
-### Intermediate Challenges (5)
+### Intermediate Challenges (6)
 Build on your skills:
 6. **Todo List** - Complex state management
 7. **Search Filter** - Performance optimization with useMemo
 8. **Timer** - useEffect cleanup and useRef
 9. **Window Resizer** - Browser event listeners
 10. **Pagination** - Array slicing and boundary checking
+11. **Shopping Cart** - useReducer pattern for complex state
 
 ### Advanced Challenges (1)
 Master advanced patterns:
-11. **Fetch Users** - Async data fetching with AbortController
+12. **Fetch Users** - Async data fetching with AbortController
 
 ## 🤝 Contributing
 
