@@ -24,7 +24,7 @@ const ShoppingCartChallengePage = () => {
     <div className="min-h-screen">
       {/* Page header */}
       <section className="bg-bg-primary border-b border-border">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm mb-4">
             <Link to="/challenges" className="text-text-muted hover:text-primary transition-colors">
@@ -44,9 +44,9 @@ const ShoppingCartChallengePage = () => {
             </div>
           </div>
 
-          <p className="text-text-secondary">
-            Build a shopping cart using useReducer for complex state management,
-            with add/remove functionality and optimized total calculations using useMemo.
+          <p className="text-text-secondary max-w-2xl">
+            Build an Amazon-style shopping cart using useReducer for complex state management,
+            with product grid, cart sidebar, and optimized total calculations using useMemo.
           </p>
           <a
             href="https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ShoppingCart.jsx"
@@ -63,16 +63,17 @@ const ShoppingCartChallengePage = () => {
       </section>
 
       {/* Challenge content */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-bg-secondary rounded-xl border border-border p-6">
-          <h2 className="text-lg font-semibold text-text-primary mb-4">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-6">
+          <h2 className="text-lg font-semibold text-text-primary mb-2">
             Interactive Demo
           </h2>
-          <p className="text-text-secondary mb-4">
+          <p className="text-text-secondary">
             Browse products, add them to your cart, and watch the total update automatically:
           </p>
-          <ShoppingCart />
         </div>
+        
+        <ShoppingCart />
 
         {/* Learning points */}
         <div className="mt-8 bg-bg-primary rounded-xl border border-border p-6">
@@ -104,15 +105,17 @@ const ShoppingCartChallengePage = () => {
             <li className="flex items-start gap-3">
               <span className="w-6 h-6 bg-primary-light text-primary rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0">4</span>
               <div>
-                <p className="font-medium text-text-primary">Component Composition</p>
-                <p className="text-sm text-text-secondary">Break down the UI into focused components: ProductCard, Cart, CartItem for better organization.</p>
+                <p className="font-medium text-text-primary">Amazon-Style Layout</p>
+                <p className="text-sm text-text-secondary">Responsive grid layout with product cards on left and sticky cart sidebar on right for optimal UX.</p>
               </div>
             </li>
           </ul>
         </div>
 
         {/* Solution section */}
-        {solution && <ShowSolution solution={solution} />}
+        <div className="max-w-4xl">
+          {solution && <ShowSolution solution={solution} />}
+        </div>
       </section>
     </div>
   );
