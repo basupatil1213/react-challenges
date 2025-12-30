@@ -81,6 +81,20 @@ export const challenges = [
     ],
   },
   {
+    id: 'table',
+    title: 'Tabbed Content',
+    description: 'Build a tabbed content component with dynamic tab switching and conditional rendering.',
+    difficulty: 'Beginner',
+    category: 'State Management',
+    concepts: ['useState', 'Conditional Rendering', 'Array Mapping', 'ARIA'],
+    icon: '📊',
+    learningPoints: [
+      'Track active tab with useState',
+      'Apply dynamic styles based on state',
+      'Use hidden attribute for content switching',
+    ],
+  },
+  {
     id: 'todo-list',
     title: 'Todo List',
     description: 'Build a complete todo application with add, delete, complete, and filter functionality.',
