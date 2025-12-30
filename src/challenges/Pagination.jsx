@@ -31,14 +31,8 @@ const defaultData = [
   'Concurrent Features',
 ];
 
-/**
- * Props interface for Pagination component
- */
-interface PaginationProps {
-  data?: string[];
-}
 
-const Pagination = ({ data = defaultData }: PaginationProps) => {
+const Pagination = ({ data = defaultData }) => {
   // State for items per page
   const [itemsPerPage, setItemsPerPage] = useState(5);
   // State for current page (1-indexed)
@@ -65,7 +59,7 @@ const Pagination = ({ data = defaultData }: PaginationProps) => {
    * Handle items per page change
    * Resets to page 1 when changing items per page
    */
-  const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleItemsPerPageChange = (e) => {
     const value = Math.max(1, Math.min(50, Number(e.target.value)));
     setItemsPerPage(value);
     setCurrentPage(1);
