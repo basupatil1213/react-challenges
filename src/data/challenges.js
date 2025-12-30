@@ -151,6 +151,20 @@ export const challenges = [
     ],
   },
   {
+    id: 'pagination',
+    title: 'Pagination',
+    description: 'Build a pagination component with configurable page sizes, navigation controls, and optimized rendering.',
+    difficulty: 'Intermediate',
+    category: 'Performance',
+    concepts: ['useState', 'useMemo', 'Array Slicing', 'Boundary Checking'],
+    icon: '📄',
+    learningPoints: [
+      'Memoize expensive calculations',
+      'Slice arrays for pagination',
+      'Handle boundary conditions',
+    ],
+  },
+  {
     id: 'fetch-users',
     title: 'Fetch Users',
     description: 'Handle asynchronous data fetching with loading states, error handling, and request cancellation.',

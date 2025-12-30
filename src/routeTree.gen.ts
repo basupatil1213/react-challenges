@@ -17,6 +17,7 @@ import { Route as ChallengesTodoListRouteImport } from './routes/challenges/todo
 import { Route as ChallengesTimerRouteImport } from './routes/challenges/timer'
 import { Route as ChallengesTableRouteImport } from './routes/challenges/table'
 import { Route as ChallengesSearchRouteImport } from './routes/challenges/search'
+import { Route as ChallengesPaginationRouteImport } from './routes/challenges/pagination'
 import { Route as ChallengesModalRouteImport } from './routes/challenges/modal'
 import { Route as ChallengesFetchUsersRouteImport } from './routes/challenges/fetch-users'
 import { Route as ChallengesCounterRouteImport } from './routes/challenges/counter'
@@ -62,6 +63,11 @@ const ChallengesSearchRoute = ChallengesSearchRouteImport.update({
   path: '/challenges/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengesPaginationRoute = ChallengesPaginationRouteImport.update({
+  id: '/challenges/pagination',
+  path: '/challenges/pagination',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChallengesModalRoute = ChallengesModalRouteImport.update({
   id: '/challenges/modal',
   path: '/challenges/modal',
@@ -90,6 +96,7 @@ export interface FileRoutesByFullPath {
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/challenges/counter': typeof ChallengesCounterRoute
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/table': typeof ChallengesTableRoute
   '/challenges/timer': typeof ChallengesTimerRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/challenges/counter'
     | '/challenges/fetch-users'
     | '/challenges/modal'
+    | '/challenges/pagination'
     | '/challenges/search'
     | '/challenges/table'
     | '/challenges/timer'
@@ -149,6 +159,7 @@ export interface FileRouteTypes {
     | '/challenges/counter'
     | '/challenges/fetch-users'
     | '/challenges/modal'
+    | '/challenges/pagination'
     | '/challenges/search'
     | '/challenges/table'
     | '/challenges/timer'
@@ -163,6 +174,7 @@ export interface FileRouteTypes {
     | '/challenges/counter'
     | '/challenges/fetch-users'
     | '/challenges/modal'
+    | '/challenges/pagination'
     | '/challenges/search'
     | '/challenges/table'
     | '/challenges/timer'
@@ -178,6 +190,7 @@ export interface RootRouteChildren {
   ChallengesCounterRoute: typeof ChallengesCounterRoute
   ChallengesFetchUsersRoute: typeof ChallengesFetchUsersRoute
   ChallengesModalRoute: typeof ChallengesModalRoute
+  ChallengesPaginationRoute: typeof ChallengesPaginationRoute
   ChallengesSearchRoute: typeof ChallengesSearchRoute
   ChallengesTableRoute: typeof ChallengesTableRoute
   ChallengesTimerRoute: typeof ChallengesTimerRoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChallengesSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenges/pagination': {
+      id: '/challenges/pagination'
+      path: '/challenges/pagination'
+      fullPath: '/challenges/pagination'
+      preLoaderRoute: typeof ChallengesPaginationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenges/modal': {
       id: '/challenges/modal'
       path: '/challenges/modal'
@@ -282,6 +302,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengesCounterRoute: ChallengesCounterRoute,
   ChallengesFetchUsersRoute: ChallengesFetchUsersRoute,
   ChallengesModalRoute: ChallengesModalRoute,
+  ChallengesPaginationRoute: ChallengesPaginationRoute,
   ChallengesSearchRoute: ChallengesSearchRoute,
   ChallengesTableRoute: ChallengesTableRoute,
   ChallengesTimerRoute: ChallengesTimerRoute,
