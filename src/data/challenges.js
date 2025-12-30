@@ -179,6 +179,20 @@ export const challenges = [
     ],
   },
   {
+    id: 'form-validation',
+    title: 'Form Validation',
+    description: 'Build a comprehensive form with real-time validation, password strength indicator, and accessible error handling.',
+    difficulty: 'Intermediate',
+    category: 'State Management',
+    concepts: ['useState', 'useMemo', 'Validation', 'Accessibility'],
+    icon: '📋',
+    learningPoints: [
+      'Real-time field validation',
+      'Password strength calculation',
+      'Accessible error messages',
+    ],
+  },
+  {
     id: 'fetch-users',
     title: 'Fetch Users',
     description: 'Handle asynchronous data fetching with loading states, error handling, and request cancellation.',

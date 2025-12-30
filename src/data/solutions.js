@@ -247,6 +247,30 @@ export const solutions = {
     filename: 'ShoppingCart.jsx',
     githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ShoppingCart.jsx',
   },
+
+  'form-validation': {
+    explanation: 'Form Validation uses useState for form data and touched state, useMemo for efficient validation and password strength calculation, and proper accessibility attributes.',
+    hints: [
+      {
+        title: 'Touched State Pattern',
+        content: 'Track which fields have been touched with a separate state object. Only show errors for touched fields to avoid overwhelming users on initial render.',
+      },
+      {
+        title: 'Memoized Validation',
+        content: 'Use useMemo to compute validation errors: useMemo(() => ({ name: validateField("name", formData.name), ... }), [formData]). This avoids recalculating on every render.',
+      },
+      {
+        title: 'Password Strength',
+        content: 'Calculate strength by checking multiple regex patterns (uppercase, lowercase, number, special char). Return a score object with checks, score (0-5), label, and color.',
+      },
+      {
+        title: 'Accessibility',
+        content: 'Use aria-invalid on inputs, role="alert" for error messages, aria-describedby to link inputs to their requirements, and proper label associations.',
+      },
+    ],
+    filename: 'FormWithValidation.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/FormWithValidation.jsx',
+  },
 };
 
 /**
