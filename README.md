@@ -9,7 +9,7 @@ A collection of hands-on React exercises designed to strengthen your understandi
 
 ## 🎯 Overview
 
-This project contains **9 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
+This project contains **11 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
 
 ## 📚 Challenges
 
@@ -19,11 +19,13 @@ This project contains **9 progressive React challenges** that cover fundamental 
 | 2 | 🌓 **Toggle Theme** | Beginner | useState, Conditional Styling |
 | 3 | 📝 **Controlled Input** | Beginner | useState, Controlled Components |
 | 4 | 🪟 **Modal** | Beginner | Custom Hooks, Conditional Rendering, ARIA |
-| 5 | ✅ **Todo List** | Intermediate | useState, useMemo, Array Methods |
-| 6 | 🔍 **Search Filter** | Intermediate | useState, useMemo, Filtering |
-| 7 | ⏱️ **Timer** | Intermediate | useState, useEffect, useRef |
-| 8 | 📐 **Window Resizer** | Intermediate | useState, useEffect, Event Listeners |
-| 9 | 👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
+| 5 | 📊 **Tabbed Content** | Beginner | useState, Conditional Rendering, Array Mapping |
+| 6 | ✅ **Todo List** | Intermediate | useState, useMemo, Array Methods |
+| 7 | 🔍 **Search Filter** | Intermediate | useState, useMemo, Debouncing |
+| 8 | ⏱️ **Timer** | Intermediate | useState, useEffect, useRef |
+| 9 | 📐 **Window Resizer** | Intermediate | useState, useEffect, Event Listeners |
+| 10 | 📄 **Pagination** | Intermediate | useState, useMemo, Array Slicing |
+| 11 | 👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
 
 ## 🚀 Getting Started
 
@@ -59,15 +61,21 @@ src/
 │   ├── ToggleTheme.jsx
 │   ├── ControlledInput.jsx
 │   ├── Modal.jsx
+│   ├── Table.jsx
 │   ├── TodoList.jsx
 │   ├── Search.jsx
 │   ├── Timer.jsx
 │   ├── WindowResizer.jsx
+│   ├── Pagination.jsx
 │   └── FetchUsers.jsx
 ├── data/
-│   └── challenges.js    # Centralized challenge metadata
+│   ├── challenges.js    # Centralized challenge metadata
+│   └── solutions.js     # Challenge solutions
+├── components/
+│   └── ShowSolution.jsx # Solution display component
 ├── hooks/
-│   └── use-toggle.js    # Custom hooks
+│   ├── use-toggle.js    # Toggle state hook
+│   └── use-debounce.js  # Debounce hook
 ├── routes/
 │   ├── __root.jsx       # Root layout with navigation
 │   ├── index.jsx        # Home page
@@ -77,10 +85,12 @@ src/
 │       ├── toggle-theme.jsx
 │       ├── controlled-input.jsx
 │       ├── modal.jsx
+│       ├── table.jsx
 │       ├── todo-list.jsx
 │       ├── search.jsx
 │       ├── timer.jsx
 │       ├── window-resizer.jsx
+│       ├── pagination.jsx
 │       └── fetch-users.jsx
 └── assets/              # Static assets
 ```
@@ -95,23 +105,25 @@ src/
 
 ## 📖 Learning Path
 
-### Beginner Challenges
+### Beginner Challenges (5)
 Start here to learn React fundamentals:
 1. **Counter** - Learn useState basics
 2. **Toggle Theme** - Practice conditional styling
 3. **Controlled Input** - Master form handling
 4. **Modal** - Create custom hooks
+5. **Tabbed Content** - Dynamic tab switching
 
-### Intermediate Challenges
+### Intermediate Challenges (5)
 Build on your skills:
-5. **Todo List** - Complex state management
-6. **Search Filter** - Performance optimization with useMemo
-7. **Timer** - useEffect cleanup and useRef
-8. **Window Resizer** - Browser event listeners
+6. **Todo List** - Complex state management
+7. **Search Filter** - Performance optimization with useMemo
+8. **Timer** - useEffect cleanup and useRef
+9. **Window Resizer** - Browser event listeners
+10. **Pagination** - Array slicing and boundary checking
 
-### Advanced Challenges
+### Advanced Challenges (1)
 Master advanced patterns:
-9. **Fetch Users** - Async data fetching with AbortController
+11. **Fetch Users** - Async data fetching with AbortController
 
 ## 🤝 Contributing
 

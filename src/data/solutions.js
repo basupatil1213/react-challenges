@@ -24,30 +24,8 @@ export const solutions = {
         content: 'Use the disabled attribute on buttons: disabled={count <= MIN_VALUE} prevents going below minimum, and similar logic for maximum.',
       },
     ],
-    code: `const Counter = () => {
-  const [count, setCount] = useState(0);
-  const MIN = 0;
-  const MAX = 10;
-
-  return (
-    <div>
-      <p>Count: {count}</p>
-      <button 
-        onClick={() => setCount(prev => prev - 1)}
-        disabled={count <= MIN}
-      >
-        Decrement
-      </button>
-      <button 
-        onClick={() => setCount(prev => prev + 1)}
-        disabled={count >= MAX}
-      >
-        Increment
-      </button>
-    </div>
-  );
-};`,
     filename: 'Counter.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Counter.jsx',
   },
 
   'toggle-theme': {
@@ -66,26 +44,8 @@ export const solutions = {
         content: "Toggle with setTheme(prev => prev === 'light' ? 'dark' : 'light') or setIsDark(prev => !prev).",
       },
     ],
-    code: `const ToggleTheme = () => {
-  const [theme, setTheme] = useState('light');
-
-  const themes = {
-    light: { backgroundColor: '#ffffff', color: '#000000' },
-    dark: { backgroundColor: '#1a1a1a', color: '#ffffff' },
-  };
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
-
-  return (
-    <div style={themes[theme]}>
-      <p>Current theme: {theme}</p>
-      <button onClick={toggleTheme}>Toggle Theme</button>
-    </div>
-  );
-};`,
     filename: 'ToggleTheme.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ToggleTheme.jsx',
   },
 
   'controlled-input': {
@@ -104,31 +64,8 @@ export const solutions = {
         content: 'Use onChange to update state: onChange={(e) => setText(e.target.value)}',
       },
     ],
-    code: `const ControlledInput = () => {
-  const [text, setText] = useState('');
-
-  const handleChange = (e) => {
-    setText(e.target.value);
-  };
-
-  const handleClear = () => {
-    setText('');
-  };
-
-  return (
-    <div>
-      <input
-        type="text"
-        value={text}
-        onChange={handleChange}
-        placeholder="Type something..."
-      />
-      <p>You typed: {text}</p>
-      <button onClick={handleClear}>Clear</button>
-    </div>
-  );
-};`,
     filename: 'ControlledInput.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ControlledInput.jsx',
   },
 
   modal: {
@@ -147,27 +84,8 @@ export const solutions = {
         content: 'Accept children prop in Modal component to render any content inside: {children}',
       },
     ],
-    code: `// useToggle hook
-export const useToggle = (initial = false) => {
-  const [state, setState] = useState(initial);
-  const toggle = () => setState(prev => !prev);
-  return [state, toggle, setState];
-};
-
-// Modal component
-const Modal = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
-
-  return (
-    <div className="overlay" onClick={onClose}>
-      <div className="modal" onClick={e => e.stopPropagation()}>
-        <button onClick={onClose}>×</button>
-        {children}
-      </div>
-    </div>
-  );
-};`,
     filename: 'Modal.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Modal.jsx',
   },
 
   'todo-list': {
@@ -186,36 +104,8 @@ const Modal = ({ isOpen, onClose, children }) => {
         content: 'Use useMemo to filter todos by status: useMemo(() => todos.filter(...), [todos, filter])',
       },
     ],
-    code: `const TodoList = () => {
-  const [todos, setTodos] = useState([]);
-  const [input, setInput] = useState('');
-  const [filter, setFilter] = useState('all');
-
-  const addTodo = () => {
-    if (!input.trim()) return;
-    setTodos([...todos, { 
-      id: crypto.randomUUID(), 
-      text: input, 
-      completed: false 
-    }]);
-    setInput('');
-  };
-
-  const toggleTodo = (id) => {
-    setTodos(todos.map(t => 
-      t.id === id ? {...t, completed: !t.completed} : t
-    ));
-  };
-
-  const filteredTodos = useMemo(() => {
-    if (filter === 'active') return todos.filter(t => !t.completed);
-    if (filter === 'completed') return todos.filter(t => t.completed);
-    return todos;
-  }, [todos, filter]);
-
-  return (/* JSX */);
-};`,
     filename: 'TodoList.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/TodoList.jsx',
   },
 
   search: {
@@ -234,33 +124,8 @@ const Modal = ({ isOpen, onClose, children }) => {
         content: 'Convert both search and item text to lowercase: item.name.toLowerCase().includes(search.toLowerCase())',
       },
     ],
-    code: `// useDebounce hook
-export const useDebounce = (value, delay = 500) => {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setDebouncedValue(value), delay);
-    return () => clearTimeout(timer);
-  }, [value, delay]);
-
-  return debouncedValue;
-};
-
-// Search component
-const Search = () => {
-  const [searchText, setSearchText] = useState('');
-  const debouncedSearch = useDebounce(searchText, 500);
-
-  const filteredItems = useMemo(() => {
-    const search = debouncedSearch.toLowerCase();
-    return items.filter(item => 
-      item.name.toLowerCase().includes(search)
-    );
-  }, [debouncedSearch]);
-
-  return (/* JSX */);
-};`,
     filename: 'Search.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Search.jsx',
   },
 
   timer: {
@@ -279,37 +144,8 @@ const Search = () => {
         content: 'useEffect cleanup clears interval on unmount: useEffect(() => { return () => clearInterval(intervalRef.current); }, []);',
       },
     ],
-    code: `const Timer = () => {
-  const [time, setTime] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-  const intervalRef = useRef(null);
-
-  const start = () => {
-    if (isRunning) return;
-    setIsRunning(true);
-    intervalRef.current = setInterval(() => {
-      setTime(prev => prev + 1);
-    }, 1000);
-  };
-
-  const pause = () => {
-    clearInterval(intervalRef.current);
-    setIsRunning(false);
-  };
-
-  const reset = () => {
-    clearInterval(intervalRef.current);
-    setIsRunning(false);
-    setTime(0);
-  };
-
-  useEffect(() => {
-    return () => clearInterval(intervalRef.current);
-  }, []);
-
-  return (/* JSX */);
-};`,
     filename: 'Timer.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Timer.jsx',
   },
 
   'window-resizer': {
@@ -328,32 +164,8 @@ const Search = () => {
         content: 'Return cleanup function: return () => window.removeEventListener("resize", handleResize)',
       },
     ],
-    code: `const WindowResizer = () => {
-  const [dimensions, setDimensions] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return (
-    <div>
-      <p>Width: {dimensions.width}px</p>
-      <p>Height: {dimensions.height}px</p>
-    </div>
-  );
-};`,
     filename: 'WindowResizer.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/WindowResizer.jsx',
   },
 
   'fetch-users': {
@@ -372,42 +184,48 @@ const Search = () => {
         content: 'Create controller, pass signal to fetch, call controller.abort() in cleanup. Check if error is AbortError before setting error state.',
       },
     ],
-    code: `const FetchUsers = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchUsers = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          'https://jsonplaceholder.typicode.com/users',
-          { signal: controller.signal }
-        );
-        const data = await res.json();
-        setUsers(data);
-        setError(null);
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          setError(err.message);
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUsers();
-    return () => controller.abort();
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  return (/* render users */);
-};`,
     filename: 'FetchUsers.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/FetchUsers.jsx',
+  },
+
+  table: {
+    explanation: 'The Table (Tabbed Content) component uses useState to track the active tab index. When a tab is clicked, the index updates and the corresponding content is shown using conditional rendering with the hidden attribute.',
+    hints: [
+      {
+        title: 'Track Active Tab',
+        content: 'Use useState(0) to store the index of the currently active tab. Initialize to 0 to show the first tab by default.',
+      },
+      {
+        title: 'Dynamic Styling',
+        content: 'Apply conditional styles based on whether the current index matches activeTab: style={{ color: activeTab === idx ? "green" : "black" }}',
+      },
+      {
+        title: 'Show/Hide Content',
+        content: 'Use the hidden attribute to show only the active content: hidden={idx !== activeTab}. This keeps all content in the DOM but only displays the selected one.',
+      },
+    ],
+    filename: 'Table.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Table.jsx',
+  },
+
+  pagination: {
+    explanation: 'Pagination uses useMemo to efficiently calculate which items to display based on the current page and items per page. The component manages multiple state values and handles boundary conditions for navigation.',
+    hints: [
+      {
+        title: 'Calculate Page Bounds',
+        content: 'Calculate startIndex as (currentPage - 1) * itemsPerPage. Use array.slice(startIndex, startIndex + itemsPerPage) to get visible items.',
+      },
+      {
+        title: 'Memoize Visible Rows',
+        content: 'Wrap the calculation in useMemo with [data, itemsPerPage, currentPage] as dependencies to avoid recalculating on every render.',
+      },
+      {
+        title: 'Boundary Checking',
+        content: 'Disable Previous when currentPage <= 1. Calculate totalPages as Math.ceil(data.length / itemsPerPage) and disable Next when currentPage >= totalPages.',
+      },
+    ],
+    filename: 'Pagination.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/Pagination.jsx',
   },
 };
 
