@@ -295,6 +295,30 @@ export const solutions = {
     filename: 'ProductFilters.jsx',
     githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ProductFilters.jsx',
   },
+
+  'notes-app': {
+    explanation: 'The Notes App demonstrates building a custom useLocalStorage hook that syncs React state with browser localStorage. The hook handles JSON serialization, lazy initialization, and cross-tab synchronization via the storage event.',
+    hints: [
+      {
+        title: 'Lazy Initialization',
+        content: 'Use a function in useState to read from localStorage only once: useState(() => { const stored = localStorage.getItem(key); return stored ? JSON.parse(stored) : initialValue; })',
+      },
+      {
+        title: 'Sync on Update',
+        content: 'Create an updateValue function that both updates React state and writes to localStorage: setValue(newValue); localStorage.setItem(key, JSON.stringify(newValue));',
+      },
+      {
+        title: 'Cross-Tab Sync',
+        content: 'Listen to the "storage" event in useEffect: window.addEventListener("storage", (e) => { if (e.key === key) setValue(JSON.parse(e.newValue)); }). Clean up on unmount.',
+      },
+      {
+        title: 'Error Handling',
+        content: 'Wrap localStorage operations in try-catch blocks to handle cases where localStorage is unavailable (private browsing, storage quota exceeded, etc.).',
+      },
+    ],
+    filename: 'NotesApp.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/NotesApp.jsx',
+  },
 };
 
 /**

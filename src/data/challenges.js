@@ -221,6 +221,21 @@ export const challenges = [
       'Dispatch typed actions with payloads',
     ],
   },
+  {
+    id: 'notes-app',
+    title: 'Notes App',
+    description: 'Build a persistent notes application using custom useLocalStorage hook with CRUD operations and cross-tab synchronization.',
+    difficulty: 'Intermediate',
+    category: 'Custom Hooks',
+    concepts: ['Custom Hooks', 'useLocalStorage', 'useEffect', 'Data Persistence'],
+    icon: '📝',
+    learningPoints: [
+      'Create and use custom useLocalStorage hook',
+      'Persist data across page refreshes',
+      'Sync state across browser tabs',
+      'Handle JSON serialization safely',
+    ],
+  },
 ];
 
 /**

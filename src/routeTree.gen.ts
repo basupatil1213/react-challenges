@@ -20,6 +20,7 @@ import { Route as ChallengesShoppingCartRouteImport } from './routes/challenges/
 import { Route as ChallengesSearchRouteImport } from './routes/challenges/search'
 import { Route as ChallengesProductFiltersRouteImport } from './routes/challenges/product-filters'
 import { Route as ChallengesPaginationRouteImport } from './routes/challenges/pagination'
+import { Route as ChallengesNotesAppRouteImport } from './routes/challenges/notes-app'
 import { Route as ChallengesModalRouteImport } from './routes/challenges/modal'
 import { Route as ChallengesFormValidationRouteImport } from './routes/challenges/form-validation'
 import { Route as ChallengesFetchUsersRouteImport } from './routes/challenges/fetch-users'
@@ -82,6 +83,11 @@ const ChallengesPaginationRoute = ChallengesPaginationRouteImport.update({
   path: '/challenges/pagination',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengesNotesAppRoute = ChallengesNotesAppRouteImport.update({
+  id: '/challenges/notes-app',
+  path: '/challenges/notes-app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChallengesModalRoute = ChallengesModalRouteImport.update({
   id: '/challenges/modal',
   path: '/challenges/modal',
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/notes-app': typeof ChallengesNotesAppRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByTo {
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/notes-app': typeof ChallengesNotesAppRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
@@ -154,6 +162,7 @@ export interface FileRoutesById {
   '/challenges/fetch-users': typeof ChallengesFetchUsersRoute
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
+  '/challenges/notes-app': typeof ChallengesNotesAppRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
   '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
@@ -174,6 +183,7 @@ export interface FileRouteTypes {
     | '/challenges/fetch-users'
     | '/challenges/form-validation'
     | '/challenges/modal'
+    | '/challenges/notes-app'
     | '/challenges/pagination'
     | '/challenges/product-filters'
     | '/challenges/search'
@@ -192,6 +202,7 @@ export interface FileRouteTypes {
     | '/challenges/fetch-users'
     | '/challenges/form-validation'
     | '/challenges/modal'
+    | '/challenges/notes-app'
     | '/challenges/pagination'
     | '/challenges/product-filters'
     | '/challenges/search'
@@ -210,6 +221,7 @@ export interface FileRouteTypes {
     | '/challenges/fetch-users'
     | '/challenges/form-validation'
     | '/challenges/modal'
+    | '/challenges/notes-app'
     | '/challenges/pagination'
     | '/challenges/product-filters'
     | '/challenges/search'
@@ -229,6 +241,7 @@ export interface RootRouteChildren {
   ChallengesFetchUsersRoute: typeof ChallengesFetchUsersRoute
   ChallengesFormValidationRoute: typeof ChallengesFormValidationRoute
   ChallengesModalRoute: typeof ChallengesModalRoute
+  ChallengesNotesAppRoute: typeof ChallengesNotesAppRoute
   ChallengesPaginationRoute: typeof ChallengesPaginationRoute
   ChallengesProductFiltersRoute: typeof ChallengesProductFiltersRoute
   ChallengesSearchRoute: typeof ChallengesSearchRoute
@@ -320,6 +333,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChallengesPaginationRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenges/notes-app': {
+      id: '/challenges/notes-app'
+      path: '/challenges/notes-app'
+      fullPath: '/challenges/notes-app'
+      preLoaderRoute: typeof ChallengesNotesAppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenges/modal': {
       id: '/challenges/modal'
       path: '/challenges/modal'
@@ -365,6 +385,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengesFetchUsersRoute: ChallengesFetchUsersRoute,
   ChallengesFormValidationRoute: ChallengesFormValidationRoute,
   ChallengesModalRoute: ChallengesModalRoute,
+  ChallengesNotesAppRoute: ChallengesNotesAppRoute,
   ChallengesPaginationRoute: ChallengesPaginationRoute,
   ChallengesProductFiltersRoute: ChallengesProductFiltersRoute,
   ChallengesSearchRoute: ChallengesSearchRoute,
