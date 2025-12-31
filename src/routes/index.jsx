@@ -135,6 +135,10 @@ const StatsSection = () => {
  * Main home page layout combining hero, stats, and challenge cards.
  */
 const HomePage = () => {
+  // Featured challenges - curated selection showcasing different difficulty levels and concepts
+  const featuredChallengeIds = ['counter', 'todo-list', 'shopping-cart', 'product-filters', 'fetch-users'];
+  const featuredChallenges = challenges.filter(c => featuredChallengeIds.includes(c.id));
+
   return (
     <div>
       <HeroSection />
@@ -148,12 +152,12 @@ const HomePage = () => {
             to="/challenges"
             className="text-primary hover:text-primary-hover font-medium transition-colors"
           >
-            View all →
+            View all {challenges.length} →
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {challenges.map((challenge) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          {featuredChallenges.map((challenge) => (
             <ChallengeCard key={challenge.id} challenge={challenge} />
           ))}
         </div>
