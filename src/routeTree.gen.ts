@@ -18,6 +18,7 @@ import { Route as ChallengesTimerRouteImport } from './routes/challenges/timer'
 import { Route as ChallengesTableRouteImport } from './routes/challenges/table'
 import { Route as ChallengesShoppingCartRouteImport } from './routes/challenges/shopping-cart'
 import { Route as ChallengesSearchRouteImport } from './routes/challenges/search'
+import { Route as ChallengesProductFiltersRouteImport } from './routes/challenges/product-filters'
 import { Route as ChallengesPaginationRouteImport } from './routes/challenges/pagination'
 import { Route as ChallengesModalRouteImport } from './routes/challenges/modal'
 import { Route as ChallengesFormValidationRouteImport } from './routes/challenges/form-validation'
@@ -70,6 +71,12 @@ const ChallengesSearchRoute = ChallengesSearchRouteImport.update({
   path: '/challenges/search',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChallengesProductFiltersRoute =
+  ChallengesProductFiltersRouteImport.update({
+    id: '/challenges/product-filters',
+    path: '/challenges/product-filters',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ChallengesPaginationRoute = ChallengesPaginationRouteImport.update({
   id: '/challenges/pagination',
   path: '/challenges/pagination',
@@ -111,6 +118,7 @@ export interface FileRoutesByFullPath {
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
+  '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
@@ -128,6 +136,7 @@ export interface FileRoutesByTo {
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
+  '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
@@ -146,6 +155,7 @@ export interface FileRoutesById {
   '/challenges/form-validation': typeof ChallengesFormValidationRoute
   '/challenges/modal': typeof ChallengesModalRoute
   '/challenges/pagination': typeof ChallengesPaginationRoute
+  '/challenges/product-filters': typeof ChallengesProductFiltersRoute
   '/challenges/search': typeof ChallengesSearchRoute
   '/challenges/shopping-cart': typeof ChallengesShoppingCartRoute
   '/challenges/table': typeof ChallengesTableRoute
@@ -165,6 +175,7 @@ export interface FileRouteTypes {
     | '/challenges/form-validation'
     | '/challenges/modal'
     | '/challenges/pagination'
+    | '/challenges/product-filters'
     | '/challenges/search'
     | '/challenges/shopping-cart'
     | '/challenges/table'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/challenges/form-validation'
     | '/challenges/modal'
     | '/challenges/pagination'
+    | '/challenges/product-filters'
     | '/challenges/search'
     | '/challenges/shopping-cart'
     | '/challenges/table'
@@ -199,6 +211,7 @@ export interface FileRouteTypes {
     | '/challenges/form-validation'
     | '/challenges/modal'
     | '/challenges/pagination'
+    | '/challenges/product-filters'
     | '/challenges/search'
     | '/challenges/shopping-cart'
     | '/challenges/table'
@@ -217,6 +230,7 @@ export interface RootRouteChildren {
   ChallengesFormValidationRoute: typeof ChallengesFormValidationRoute
   ChallengesModalRoute: typeof ChallengesModalRoute
   ChallengesPaginationRoute: typeof ChallengesPaginationRoute
+  ChallengesProductFiltersRoute: typeof ChallengesProductFiltersRoute
   ChallengesSearchRoute: typeof ChallengesSearchRoute
   ChallengesShoppingCartRoute: typeof ChallengesShoppingCartRoute
   ChallengesTableRoute: typeof ChallengesTableRoute
@@ -292,6 +306,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChallengesSearchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/challenges/product-filters': {
+      id: '/challenges/product-filters'
+      path: '/challenges/product-filters'
+      fullPath: '/challenges/product-filters'
+      preLoaderRoute: typeof ChallengesProductFiltersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/challenges/pagination': {
       id: '/challenges/pagination'
       path: '/challenges/pagination'
@@ -345,6 +366,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChallengesFormValidationRoute: ChallengesFormValidationRoute,
   ChallengesModalRoute: ChallengesModalRoute,
   ChallengesPaginationRoute: ChallengesPaginationRoute,
+  ChallengesProductFiltersRoute: ChallengesProductFiltersRoute,
   ChallengesSearchRoute: ChallengesSearchRoute,
   ChallengesShoppingCartRoute: ChallengesShoppingCartRoute,
   ChallengesTableRoute: ChallengesTableRoute,

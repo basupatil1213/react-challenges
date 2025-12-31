@@ -9,7 +9,7 @@ A collection of hands-on React exercises designed to strengthen your understandi
 
 ## 🎯 Overview
 
-This project contains **13 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
+This project contains **14 progressive React challenges** that cover fundamental to advanced concepts. Each challenge is self-contained with its own component, route page, and learning objectives.
 
 ## 📚 Challenges
 
@@ -27,7 +27,8 @@ This project contains **13 progressive React challenges** that cover fundamental
 | 10 | 📄 **Pagination** | Intermediate | useState, useMemo, Array Slicing |
 | 11 | 🛒 **Shopping Cart** | Intermediate | useReducer, useMemo, Actions |
 | 12 | 📋 **Form Validation** | Intermediate | useState, useMemo, Validation, Accessibility |
-| 13 | 👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
+| 13 | �️ **Product Filters** | Intermediate | useReducer, useMemo, Custom Hooks, Debouncing |
+| 14 | �👥 **Fetch Users** | Advanced | useState, useEffect, Async/Await, AbortController |
 
 ## 🚀 Getting Started
 
@@ -71,6 +72,7 @@ src/
 │   ├── Pagination.jsx
 │   ├── ShoppingCart.jsx
 │   ├── FormWithValidation.jsx
+│   ├── ProductFilters.jsx
 │   └── FetchUsers.jsx
 ├── data/
 │   ├── challenges.js    # Centralized challenge metadata
@@ -97,6 +99,7 @@ src/
 │       ├── pagination.jsx
 │       ├── shopping-cart.jsx
 │       ├── form-validation.jsx
+│       ├── product-filters.jsx
 │       └── fetch-users.jsx
 └── assets/              # Static assets
 ```
@@ -119,7 +122,7 @@ Start here to learn React fundamentals:
 4. **Modal** - Create custom hooks
 5. **Tabbed Content** - Dynamic tab switching
 
-### Intermediate Challenges (7)
+### Intermediate Challenges (8)
 Build on your skills:
 6. **Todo List** - Complex state management
 7. **Search Filter** - Performance optimization with useMemo
@@ -128,10 +131,11 @@ Build on your skills:
 10. **Pagination** - Array slicing and boundary checking
 11. **Shopping Cart** - useReducer pattern for complex state
 12. **Form Validation** - Real-time validation with accessibility
+13. **Product Filters** - Multi-filter system with debouncing
 
 ### Advanced Challenges (1)
 Master advanced patterns:
-13. **Fetch Users** - Async data fetching with AbortController
+14. **Fetch Users** - Async data fetching with AbortController
 
 ## 🤝 Contributing
 

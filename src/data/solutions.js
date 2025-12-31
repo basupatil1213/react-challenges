@@ -271,6 +271,30 @@ export const solutions = {
     filename: 'FormWithValidation.jsx',
     githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/FormWithValidation.jsx',
   },
+
+  'product-filters': {
+    explanation: 'Product Filters uses useReducer for managing multiple filter states (search, category, stock) in a predictable way. The debounced search prevents excessive re-filtering, and useMemo optimizes the filtered results calculation.',
+    hints: [
+      {
+        title: 'useReducer for Filters',
+        content: 'Use useReducer to manage filter state with actions like SET_SEARCH, SET_CATEGORY, TOGGLE_IN_STOCK, CLEAR_FILTERS. This makes state updates predictable and easier to debug.',
+      },
+      {
+        title: 'Debounced Search',
+        content: 'Pass the search text through useDebounce hook: const debouncedSearch = useDebounce(state.searchText, 300). Use the debounced value in your filter logic to reduce computations.',
+      },
+      {
+        title: 'Combined Filters',
+        content: 'Chain filter conditions: products.filter(p => matchesSearch(p) && matchesCategory(p) && matchesStock(p)). Each condition checks against the relevant filter state.',
+      },
+      {
+        title: 'Memoized Results',
+        content: 'Wrap filtered products in useMemo with filter state as dependencies: useMemo(() => products.filter(...), [debouncedSearch, category, inStockOnly]). This prevents recalculation on unrelated re-renders.',
+      },
+    ],
+    filename: 'ProductFilters.jsx',
+    githubUrl: 'https://github.com/basupatil1213/react-challenges/blob/main/src/challenges/ProductFilters.jsx',
+  },
 };
 
 /**

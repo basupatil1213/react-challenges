@@ -206,6 +206,21 @@ export const challenges = [
       'Cancel requests on unmount',
     ],
   },
+  {
+    id: 'product-filters',
+    title: 'Product Filters',
+    description: 'Build a product filtering system using useReducer for complex state management with debounced search and category filtering.',
+    difficulty: 'Intermediate',
+    category: 'State Management',
+    concepts: ['useReducer', 'useEffect', 'Custom Hooks', 'Debouncing'],
+    icon: '🛍️',
+    learningPoints: [
+      'Use useReducer for complex filter state',
+      'Implement debounced search with custom hooks',
+      'Combine multiple filter types',
+      'Dispatch typed actions with payloads',
+    ],
+  },
 ];
 
 /**
